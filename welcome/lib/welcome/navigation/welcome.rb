@@ -7,7 +7,8 @@ module Welcome
         @display       = _("Welcome")
         @authorization = lambda{ organization && organization.readable? }
         @items         = [
-                          ::Welcome::Navigation::Home.new(organization)
+                          ::Welcome::Navigation::Home.new(organization),
+                          ::Welcome::Navigation::Faq.new(organization)
                          ]
         super
       end
@@ -18,6 +19,14 @@ module Welcome
         @display       = _("Home")
         @authorization = lambda{ organization && organization.readable? }
         @url           = welcome_home_path
+      end
+    end
+    class Faq < ::Experimental::Navigation::Item
+      def initialize(organization)
+        @key           = :welcome_faq
+        @display       = _("FAQ")
+        @authorization = lambda{ organization && organization.readable? }
+        @url           = welcome_faq_path
       end
     end
   end

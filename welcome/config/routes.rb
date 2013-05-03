@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   namespace 'welcome' do
-    match 'home' => 'home#index', :view => :get
+    match 'home' => 'welcome#home', :view => :get
+    match 'faq' => 'welcome#faq', :view => :get
   end
 end
