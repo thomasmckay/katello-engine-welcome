@@ -1,5 +1,6 @@
 module Welcome
   class WelcomeController < ::ApplicationController
+
     def rules
       {
         :home => lambda{true},
@@ -12,5 +13,6 @@ module Welcome
 
     def faq
     end
+
   end
 end
