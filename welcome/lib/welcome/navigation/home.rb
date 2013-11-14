@@ -1,18 +1,18 @@
 module Welcome
   module Navigation
-    class Welcome < ::Experimental::Navigation::Menu
+    class Welcome < ::Navigation::Menu
       def initialize(organization)
         @type          = 'dropdown'
         @key           = :welcome
         @display       = _("Welcome")
         @authorization = lambda{ organization && organization.readable? }
         @items         = [
-                          ::Welcome::Navigation::Home.new(organization)
+                          Navigation::Home.new(organization)
                          ]
         super
       end
     end
-    class Home < ::Experimental::Navigation::Item
+    class Home < ::Navigation::Item
       def initialize(organization)
         @key           = :welcome_home
         @display       = _("Home")
